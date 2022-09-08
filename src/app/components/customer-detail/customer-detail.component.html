@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Ad Soyad</th>
+        <th scope="col">Email</th>
+        <th scope="col">Şirket Adı</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customerDetail of customerDetails">
+        <td>{{customerDetail.id}}</td>
+        <td>{{customerDetail.firstName}} {{customerDetail.lastName}}</td>
+        <td>{{customerDetail.email}}</td>
+        <td>{{customerDetail.companyName}}</td>
+      </tr>
+    </tbody>
+  </table>
