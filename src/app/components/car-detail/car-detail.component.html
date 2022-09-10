@@ -1,20 +1,50 @@
+<!-- <tr>
+  <td *ngFor="let carImage of carImages">
+    <img [src]="getPath() + carImage.imagePath"
+    class="img-thumbnail"
+    style="width: 240px; height: 160px">
+  </td>
+</tr> -->
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div  *ngFor="let carImage of carImages" 
+    [class]="checkIfFirstImage(carImage)">
+      <img [src]="getPath() + carImage.imagePath" class="d-block w-100">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
 <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Marka</th>
-        <th scope="col">Renk</th>
-        <th scope="col">Model Yılı</th>
-        <th scope="col">Günlük Fiyat</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let carDetail of carDetails">
-        <td>{{carDetail.id}}</td>
-        <td>{{carDetail.brandName}}</td>
-        <td>{{carDetail.colorName}}</td>
-        <td>{{carDetail.modelYear}}</td>
-        <td>{{carDetail.dailyPrice}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Marka</th>
+      <th scope="col">Renk</th>
+      <th scope="col">Model Yılı</th>
+      <th scope="col">Günlük Fiyat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let carDto of carDtos">
+      <td>{{ carDto.id }}</td>
+      <td>{{ carDto.brandName }}</td>
+      <td>{{ carDto.colorName }}</td>
+      <td>{{ carDto.modelYear }}</td>
+      <td>{{ carDto.dailyPrice }}</td>
+    </tr>
+  </tbody>
+</table>
