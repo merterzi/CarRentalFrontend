@@ -1,4 +1,43 @@
-<table class="table">
+<div class="mb-3">
+  <label for="filterText" class="form-label">Araba Arama</label>
+  <input
+    [(ngModel)]="filterText"
+    type="text"
+    class="form-control"
+    id="filterText"
+    placeholder="Arama ifadesi giriniz"
+  />
+</div>
+<div class="alert alert-primary" *ngIf="filterText">
+  {{ filterText }} kelimesi ile arama yaptınız
+</div>
+
+<app-filter-car></app-filter-car>
+<br><br>
+<div class="row">
+  <div
+    *ngFor="let carDto of carDtos"
+    (click)="setCurrentCarDto(carDto)"
+    routerLink="/cardetails/carDto/{{ carDto.id }}"
+    class="col card"
+    style="width: 18rem; margin: 12px;"
+  >
+    <img
+      src="https://localhost:44335/Uploads/Images/{{
+        carDto.carImages[0].imagePath
+      }}"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body">
+      <h3 class="card-title">{{ carDto.colorName }} {{ carDto.brandName }}</h3>
+      <p class="card-text">
+        {{ carDto.description }}
+      </p>
+    </div>
+  </div>
+</div>
+<!-- <table class="table">
   <thead>
     <tr>
       <th scope="col">Id</th>
@@ -10,7 +49,7 @@
   </thead>
   <tbody>
     <tr 
-    *ngFor="let carDto of carDtos"
+    *ngFor="let carDto of carDtos | filter:filterText"
     (click)="setCurrentCarDto(carDto)"
     routerLink="/cardetails/carDto/{{carDto.id}}"
     >
@@ -21,5 +60,4 @@
       <td>{{ carDto.dailyPrice }}</td>
     </tr>
   </tbody>
-</table>
-
+</table> -->
